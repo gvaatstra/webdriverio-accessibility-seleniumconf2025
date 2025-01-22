@@ -1,0 +1,6 @@
+[submodule "sites/accessibility-accessible_u"]
+	path = sites/accessibility-accessible_u
+	url = https://github.com/gvaatstra/accessibility-accessible_u.git
+[submodule "sites/accessibility-AU"]
+	path = sites/accessibility-AU
+	url = https://github.com/gvaatstra/accessibility-AU.git
