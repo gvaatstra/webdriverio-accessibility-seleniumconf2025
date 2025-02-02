@@ -5,3 +5,4 @@ node_modules
 
 test/pageobjects/demo
 test/specs/demo
+private
