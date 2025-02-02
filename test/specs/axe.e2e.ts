@@ -37,11 +37,11 @@ describe('Using Axe for accessibility checks', ()=>{
         
         const axeBuilder2 = new AxeHelper(browser, {exclude: [Form.baseSelector]})
         const results2 = await axeBuilder2.analyze()
-        // axeBuilder2.logResultsToConsole(results2)
 
         const violations1 = results1.violations.length
         const violations2 = results2.violations.length
+        console.log(`Without the form, the amount of violations went from ${violations1} to ${violations2}:`)
 
-        console.log(`Without the form, the amount of violations went from ${violations1} to ${violations2}`)
+        axeBuilder2.logResultsToConsole(results2)
     })
 })
