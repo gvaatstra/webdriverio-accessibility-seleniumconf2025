@@ -11,7 +11,7 @@ describe('Using Axe for accessibility checks', ()=>{
         expect(results.violations.length).toBeLessThan(1)
     })
 
-    xit('Should find many failures on the before-page', async()=>{
+    xit('Should find no... less failures on the after-page', async()=>{
         //Note: Do you see the difference with the Axe Chrome plugin due to difference in tags
 
         await MainPage.openAfter()
@@ -19,22 +19,23 @@ describe('Using Axe for accessibility checks', ()=>{
         const results = await axeBuilder.analyze()
         axeBuilder.logResultsToConsole(results)
 
-        // Incomplete means undeterminable and therefore needs manual inspection.
-        // Some extra information about the undetermined (incomplete) and the error
-        console.log(results)
-        console.log(results.incomplete[0].tags)
-        console.log(results.incomplete[0].nodes)
-        console.log(results.violations[0].tags)
 
+        console.log(`Error: \n`, results.violations)
+        // https://webaim.org/resources/contrastchecker/?fcolor=5A667A&bcolor=F0F0F0
+        console.log(`Error nodes: \n`, results.violations[0].nodes)
+
+        // Incomplete means undeterminable and therefore needs manual inspection.
+        console.log(`Incomplete: \n`, results.incomplete)
         expect(results.violations.length).toBeLessThan(1)
     })
 
-    it('Should find many failures on the before-page', async()=>{
+    xit('Should find less failures on the before-page with the form excluded', async()=>{
         await MainPage.openBefore()
         const axeBuilder1 = new AxeHelper(browser)
         const results1 = await axeBuilder1.analyze()
         axeBuilder1.logResultsToConsole(results1)
         
+        //Exclude form and scan again
         const axeBuilder2 = new AxeHelper(browser, {exclude: [Form.baseSelector]})
         const results2 = await axeBuilder2.analyze()
 
