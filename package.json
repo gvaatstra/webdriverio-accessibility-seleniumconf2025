@@ -11,6 +11,7 @@
     "@wdio/mocha-framework": "^9.7.2",
     "@wdio/spec-reporter": "^9.5.0",
     "@wdio/visual-service": "^6.3.0",
+    "accessibility-checker": "^3.1.79",
     "eslint": "^9.19.0",
     "live-server": "^1.2.2",
     "wdio-wait-for": "^3.0.11"
