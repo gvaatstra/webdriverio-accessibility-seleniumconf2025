@@ -1,3 +1,5 @@
+import * as path from "node:path";
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -89,7 +91,7 @@ export const config: WebdriverIO.Config = {
     // baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 20000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -102,7 +104,38 @@ export const config: WebdriverIO.Config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['visual'],
+    services: [['visual',
+        {
+            // Some options, see the docs for more
+            autoSaveBaseline: true,
+            clearRuntimeFolder: false,
+            createJsonReportFiles: false,
+            disableBlinkingCursor: true,
+            disableCSSAnimation: true,
+            enableLayoutTesting: false,
+            baselineFolder: path.join(process.cwd(), "wdio-visual-baseline"),
+            formatImageName: "{tag}",
+            screenshotPath: path.join(process.cwd(), "tmp"),
+            savePerInstance: false,
+            tabbableOptions:{
+                circle: {
+                    backgroundColor: '#ff0000',
+                    borderColor: '#000',
+                    borderWidth: 1,
+                    fontColor: '#fff',
+                    fontFamily: 'Arial',
+                    fontSize: 10,
+                    size: 10,
+                    showNumber: true,
+                },
+                line: {
+                    color: '#000',
+                    width: 1,
+                },
+            }
+            // ... more options
+        }
+    ]],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -111,6 +144,9 @@ export const config: WebdriverIO.Config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
+    mochaOpts: {
+        timeout: 15000
+    },
     
     //
     // The number of times to retry the entire specfile when it fails as a whole
