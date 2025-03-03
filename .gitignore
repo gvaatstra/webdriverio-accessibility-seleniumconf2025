@@ -3,6 +3,9 @@
 NOTES.md
 node_modules
 
+ibm-results
+wdio-visual-baseline
+wdio-visual-results
 test/pageobjects/demo
 test/specs/demo
 private

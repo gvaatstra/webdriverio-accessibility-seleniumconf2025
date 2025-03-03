@@ -2,6 +2,7 @@ import { assertCompliance, getCompliance } from "accessibility-checker";
 import MainPage from "../pageobjects/AU/mainPage"
 import { ICheckerReport } from "accessibility-checker/lib/api/IChecker";
 import path from "node:path";
+import IbmHelper from "../helper/ibmHelper";
 
 
 describe('Using IBM Equal Access accessibility-checker', () => {
@@ -34,7 +35,7 @@ describe('Using IBM Equal Access accessibility-checker', () => {
         console.log('All results: ', (results.report as ICheckerReport).results.length)
         console.log('Violations: ', filteredResults.length)
 
-        console.log('The violations are: \n', filteredResults)
+        IbmHelper.logResultsToConsole(filteredResults)
 
         //0 = match baseline or no violations, 1 = does not match baseline, 2 = failure based on failLevels
         const returnCode = assertCompliance(results.report as ICheckerReport);

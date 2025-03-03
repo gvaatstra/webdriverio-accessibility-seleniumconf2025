@@ -2,6 +2,7 @@ import { getCompliance } from "accessibility-checker";
 import MainPage from "../pageobjects/AU/mainPage"
 import { ICheckerReport } from "accessibility-checker/lib/api/IChecker";
 import AxeHelper from "../helper/axeHelper"
+import IbmHelper from "../helper/ibmHelper";
 
 
 describe('Using both Axe and IBM checkers', () => {
@@ -21,7 +22,8 @@ describe('Using both Axe and IBM checkers', () => {
         console.log(`Axe before - Error nodes: \n`, axeBeforeResults.violations.length)
         console.log(`Axe before - Incomplete: \n`, axeBeforeResults.incomplete.length)
 
-        // console.log(results.violations)
+        axeBuilder.logResultsToConsole(axeBeforeResults)
+        IbmHelper.logResultsToConsole(ibmBeforeViolations)
 
     })
     xit('should log failures on the after page', async () => {

@@ -115,7 +115,7 @@ export const config: WebdriverIO.Config = {
             enableLayoutTesting: false,
             baselineFolder: path.join(process.cwd(), "wdio-visual-baseline"),
             formatImageName: "{tag}",
-            screenshotPath: path.join(process.cwd(), "tmp"),
+            screenshotPath: path.join(process.cwd(), "wdio-visual-results"),
             savePerInstance: false,
             tabbableOptions:{
                 circle: {
