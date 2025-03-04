@@ -26,7 +26,7 @@ describe('Using both Axe and IBM checkers', () => {
         IbmHelper.logResultsToConsole(ibmBeforeViolations)
 
     })
-    xit('should log failures on the after page', async () => {
+    it('should log failures on the after page', async () => {
         await MainPage.openAfter()
 
         const ibmAfterResults = await getCompliance(browser, "TEST-After")
@@ -45,6 +45,9 @@ describe('Using both Axe and IBM checkers', () => {
 
         console.log(`Axe after - Error nodes: \n`, axeAfterResults.violations.length)
         console.log(`Axe after - Incomplete: \n`, axeAfterResults.incomplete.length)
+
+        axeBuilder.logResultsToConsole(axeAfterResults)
+        IbmHelper.logResultsToConsole(ibmAfterViolations)
 
         //Axe finds colour contrast issues on 2AAA that IBM doesn't find
         // console.log('\n\nAxe: \n',axeAfterResults.violations[0].nodes)

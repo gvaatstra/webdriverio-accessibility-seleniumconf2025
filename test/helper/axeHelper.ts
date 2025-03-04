@@ -41,6 +41,10 @@ export default class AxeHelper {
     logResultsToConsole(data: AxeResults) {
         console.table(this.getViolations(data));
     }
+    setTags(tags: string[]){
+        this.builder.withTags(tags)
+        return this
+    }
 
     private getViolations(data: AxeResults) {
         const results: { type: string, description: string }[] = [];

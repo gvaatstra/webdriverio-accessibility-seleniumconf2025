@@ -1,6 +1,12 @@
 import * as path from "node:path";
+import { wdioTestRunner } from '@axe-core/watcher'
+import * as dotenv from 'dotenv';
 
-export const config: WebdriverIO.Config = {
+// Load the .env file
+dotenv.config();
+
+export const config: WebdriverIO.Config = wdioTestRunner({
+    axe: { apiKey: process.env.DEQUE_API_KEY ?? 'See readme. Only necessary for wdio-axe-watcher.e2e.ts' },
     //
     // ====================
     // Runner Configuration
@@ -8,7 +14,7 @@ export const config: WebdriverIO.Config = {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     tsConfigPath: './tsconfig.json',
-    
+
     //
     // ==================
     // Specify Test Files
@@ -117,7 +123,7 @@ export const config: WebdriverIO.Config = {
             formatImageName: "{tag}",
             screenshotPath: path.join(process.cwd(), "wdio-visual-results"),
             savePerInstance: false,
-            tabbableOptions:{
+            tabbableOptions: {
                 circle: {
                     backgroundColor: '#ff0000',
                     borderColor: '#000',
@@ -147,7 +153,7 @@ export const config: WebdriverIO.Config = {
     mochaOpts: {
         timeout: 15000
     },
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -171,7 +177,7 @@ export const config: WebdriverIO.Config = {
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
-        expectationResultHandler: function(passed, assertion) {
+        expectationResultHandler: function (passed, assertion) {
             // do something
         }
     },
@@ -335,4 +341,4 @@ export const config: WebdriverIO.Config = {
     */
     // afterAssertion: function(params) {
     // }
-}
+})

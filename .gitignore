@@ -9,3 +9,4 @@ wdio-visual-results
 test/pageobjects/demo
 test/specs/demo
 private
+.env

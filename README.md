@@ -14,6 +14,10 @@ You can initialize them by running the following command:
 git submodule update --init --recursive
 ```
 
+## Using the Deque Axe Watcher
+This is **only** necessary if you want to run the `wdio-axe-watcher.e2e.ts` tests. You'll need to create an `.env` file with the environment varialbe `DEQUE_API_KEY` with your Deque Developer Hub api-key.   
+You can create that [HERE](https://axe.deque.com/settings)
+
 ## The websites
 The following websites are used in the tests:
 - https://a11y-assessments.pages.oit.duke.edu/accessible-u/before_u.html
