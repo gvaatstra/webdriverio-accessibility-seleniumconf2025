@@ -8,7 +8,6 @@ export default class IbmHelper {
     
         private static getViolations(data: IBaselineResult[]) {
             const results: { message: string, level: string, snippet: string }[] = [];
-            for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < data.length; j++) {
                     results.push({
                         message: `IBM - ${data[j].message}`,
@@ -16,7 +15,6 @@ export default class IbmHelper {
                         snippet: data[j].snippet
                     });
                 }
-            }
             return results;
         }
 }

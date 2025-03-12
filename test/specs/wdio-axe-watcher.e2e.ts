@@ -6,6 +6,7 @@ import AxeHelper from "../helper/axeHelper.ts";
 describe('WebdriverIO visual and tabbing', ()=> {
     let controller: WdioController
 
+    // You do need a .env file with your API key from Deque Developer Hub (as of now free)
     before(()=>{
         controller = new WdioController(browser)
         wrapWdio(browser, controller)
@@ -24,13 +25,13 @@ describe('WebdriverIO visual and tabbing', ()=> {
         await MainPage.openBefore()
         const axeBuilder = new AxeHelper(browser).setTags(axeTags)
         const results = await axeBuilder.analyze()
-        axeBuilder.logResultsToConsole(results)
+        axeBuilder.logViolationsToConsole(results)
         await MainPage.openAfter(true)
         const resultsAfter = await axeBuilder.analyze()
-        axeBuilder.logResultsToConsole(resultsAfter)
+        axeBuilder.logViolationsToConsole(resultsAfter)
         await MainPage.openBefore(true)
         const resultsBeforeAgain = await axeBuilder.analyze()
-        axeBuilder.logResultsToConsole(resultsBeforeAgain)
+        axeBuilder.logViolationsToConsole(resultsBeforeAgain)
 
 })
 

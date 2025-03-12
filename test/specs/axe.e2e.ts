@@ -7,7 +7,7 @@ describe('Using Axe for accessibility checks', ()=>{
         await MainPage.openBefore()
         const axeBuilder = new AxeHelper(browser)
         const results = await axeBuilder.analyze()
-        axeBuilder.logResultsToConsole(results)
+        axeBuilder.logViolationsToConsole(results)
         expect(results.violations.length).toBeLessThan(1)
     })
 
@@ -17,7 +17,7 @@ describe('Using Axe for accessibility checks', ()=>{
         await MainPage.openAfter()
         const axeBuilder = new AxeHelper(browser)
         const results = await axeBuilder.analyze()
-        axeBuilder.logResultsToConsole(results)
+        axeBuilder.logViolationsToConsole(results)
 
 
         console.log(`Error: \n`, results.violations)
@@ -33,7 +33,7 @@ describe('Using Axe for accessibility checks', ()=>{
         await MainPage.openBefore()
         const axeBuilder1 = new AxeHelper(browser)
         const results1 = await axeBuilder1.analyze()
-        axeBuilder1.logResultsToConsole(results1)
+        axeBuilder1.logViolationsToConsole(results1)
         
         //Exclude form and scan again
         const axeBuilder2 = new AxeHelper(browser, {exclude: [Form.baseSelector]})
@@ -43,6 +43,6 @@ describe('Using Axe for accessibility checks', ()=>{
         const violations2 = results2.violations.length
         console.log(`Without the form, the amount of violations went from ${violations1} to ${violations2}:`)
 
-        axeBuilder2.logResultsToConsole(results2)
+        axeBuilder2.logViolationsToConsole(results2)
     })
 })

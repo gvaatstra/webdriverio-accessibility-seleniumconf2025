@@ -38,8 +38,11 @@ export default class AxeHelper {
         return this.builder.analyze()
     }
 
-    logResultsToConsole(data: AxeResults) {
+    logViolationsToConsole(data: AxeResults) {
         console.table(this.getViolations(data));
+    }
+    logIncompletesToConsole(data: AxeResults) {
+        console.table(this.getIncompletes(data));
     }
     setTags(tags: string[]){
         this.builder.withTags(tags)
@@ -57,6 +60,22 @@ export default class AxeHelper {
                 results.push({
                     type: `Axe violation ${i} - HTML`,
                     description: data.violations[i].nodes[j].target.toString()
+                });
+            }
+        }
+        return results;
+    }
+    private getIncompletes(data: AxeResults) {
+        const results: { type: string, description: string }[] = [];
+        for (let i = 0; i < data.incomplete.length; i++) {
+            results.push({
+                type: `Axe incomplete ${i}`,
+                description: data.incomplete[i].description,
+            });
+            for (let j = 0; j < data.incomplete[i].nodes.length; j++) {
+                results.push({
+                    type: `Axe incomplete ${i} - HTML`,
+                    description: data.incomplete[i].nodes[j].target.toString()
                 });
             }
         }
