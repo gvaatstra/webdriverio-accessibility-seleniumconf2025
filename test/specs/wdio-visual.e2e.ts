@@ -21,7 +21,8 @@ describe('WebdriverIO visual and tabbing', ()=> {
         await MainPage.openAfter()
         const captchaLabel = await $('#captcha')
         const submitButton = await $('#submit')
-        // Beware of timing. Run both tests and you'll have the full tab order. Run this in isolation, you miss tabs on the video component
+        // Beware of timing. Without the wait, the video component isn't fully taken into account in the tab order
+        await browser.pause(2000)
         const result = await browser.checkTabbablePage('fullPageAfter-Tabbed', {
             hideElements: [captchaLabel]
 

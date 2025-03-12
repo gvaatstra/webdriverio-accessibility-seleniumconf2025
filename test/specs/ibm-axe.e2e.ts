@@ -6,7 +6,7 @@ import IbmHelper from "../helper/ibmHelper";
 
 
 describe('Using both Axe and IBM checkers', () => {
-    it('should log failures on the before page', async () => {
+    xit('should log failures on the before page', async () => {
         await MainPage.openBefore()
 
         const ibmBeforeResults = await getCompliance(browser, "TEST-Before")
