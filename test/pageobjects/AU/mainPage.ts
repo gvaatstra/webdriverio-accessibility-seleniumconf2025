@@ -2,8 +2,7 @@ import BasePage from "./basePage";
 
 class MainPage extends BasePage{
     /**
-    * Opens the before page of Accessibile University
-    * @returns the page with accessibility issues
+    * Opens the BEFORE page of Accessibile University
     */
     public openBefore(remote=true) {
         if(remote) return this.openRemote('before.html')
@@ -11,8 +10,7 @@ class MainPage extends BasePage{
     }
 
     /**
-    * Opens the after page of Accessibile University
-    * @returns the page with accessibility issues fixed
+    * Opens the AFTER page of Accessibile University
     */
     public openAfter(remote=true) {
         if(remote) return this.openRemote('after.html')

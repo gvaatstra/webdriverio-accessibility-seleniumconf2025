@@ -19,9 +19,10 @@ This is **only** necessary if you want to run the `wdio-axe-watcher.e2e.ts` test
 You can create that [HERE](https://axe.deque.com/settings)
 
 ## The websites
-The following websites are used in the tests:
-- https://a11y-assessments.pages.oit.duke.edu/accessible-u/before_u.html
+The first of these websites is used in the test. The second is similar:
 - https://www.washington.edu/accesscomputing/AU/before.html
+- https://a11y-assessments.pages.oit.duke.edu/accessible-u/before_u.html
+
 
 If you want to use the submodules, you can host them locally from within the specific site folder.
 Go to the `sites` folder and and go to the folder of one of the sites, then run the following command:    
@@ -35,6 +36,6 @@ npx live-server
 [Deque VoiceOver shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
 
 ## Readings
-Some readings that might give you an insight:
+Some readings that might give you an insights:
 * https://benmyers.dev/blog/clickable-divs/
 * https://www.smashingmagazine.com/2019/02/buttons-interfaces/
