@@ -12,7 +12,7 @@ describe('WebdriverIO visual and tabbing', ()=> {
         wrapWdio(browser, controller)
     })
 
-    xit('Should do visual comparison', async () => {
+    xit('Should do axe watcher checks automatically', async () => {
         await MainPage.openAfter(true)
         await browser.pause(1500)
         await MainPage.openBefore(true)
