@@ -2,7 +2,7 @@
   "name": "webdriverio-accessibility-seleniumconf2025",
   "type": "module",
   "devDependencies": {
-    "@axe-core/watcher": "^3.19.1",
+    "@axe-core/watcher": "^3.20.1",
     "@axe-core/webdriverio": "^4.10.1",
     "@html-eslint/eslint-plugin": "^0.34.0",
     "@html-eslint/parser": "^0.34.0",

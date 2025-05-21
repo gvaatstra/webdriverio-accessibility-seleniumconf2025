@@ -7,6 +7,7 @@ dotenv.config();
 
 export const config: WebdriverIO.Config = wdioTestRunner({
     axe: { apiKey: process.env.DEQUE_API_KEY ?? 'See readme. Only necessary for wdio-axe-watcher.e2e.ts' },
+
     //
     // ====================
     // Runner Configuration
